@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="title" content="United Kingdom (&amp; Ireland) - Counties - MapChart">
+    <meta name="description" content="Create your own free custom Map of the United Kingdom counties (Ceremonial/Preserved/Lieutenancy areas) in 3 easy steps.">
+    <meta property="og:site_name" content="MapChart" />
+    <meta property="og:url" content="https://mapchart.net/uk.html" />
+    <meta property="og:title" content="United Kingdom (&amp; Ireland) - Counties - MapChart" />
+    <meta property="og:description" content="Create your own free custom Map of the United Kingdom counties (Ceremonial/Preserved/Lieutenancy areas) in 3 easy steps." />
+    <meta property="og:image" content="https://mapchart.net/img/logo-uk-counties.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta name="theme-color" content="#054950" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.min.css?v=2.5" type="text/css">
+    <link rel="stylesheet" href="css/europeStyles.css?v=1.2" type="text/css">
+    <link rel="stylesheet" href="css/spectrum.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jquery.contextMenu.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.svgzoomer.min.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://mapchart.net/uk.html" />
+    <title>United Kingdom (&amp; Ireland) - Counties - MapChart</title>
+    <style>
+        .select2-container {
+            max-width: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"> 
+                   mapchart.net
+               </a>
+           </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">World <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="worldDropdown" role="menu">
+                        <li><a href="world.html">Simple (Countries)</a></li>
+                        <li><a href="detworld.html">With Microstates</a></li>
+                        <li><a href="world-subdivisions.html">Detailed (Provinces/States)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Europe <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="usaDropdown" role="menu">
+                        <li><a href="europe.html">Countries </a></li>
+                        <li><a href="europe-detailed.html">Detailed (Provinces/Counties)</a></li>
+                        <li><a href="europe-nuts3.html">European Union NUTS3</a></li>
+                        <li><a href="europe-world-war-1.html">World War 1 </a></li>
+                        <li><a href="europe-world-war-2.html">World War 2 </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Asia <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="asiaDropdown" role="menu">
+                        <li><a href="asia.html">Countries</a></li>
+                        <li><a href="asia-detailed.html">Detailed (Provinces/States)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">The Americas <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="americaDropdown" role="menu">
+                        <li><a href="americas.html">Countries</a></li>
+                        <li><a href="americas-detailed.html">Detailed (Provinces/States)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Africa <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="africaDropdown" role="menu">
+                        <li><a href="africa.html">Countries</a></li>
+                        <li><a href="africa-detailed.html">Detailed (Provinces/States)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">United States <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="usaDropdown" role="menu">
+                        <li><a href="usa.html">States </a></li>
+                        <li><a href="usa-counties.html">Counties</a></li>
+                        <li><a href="usa-congressional-districts.html">Congressional Districts</a></li>
+                        <li><a href="usa-and-canada.html">USA and Canada</a></li>
+                        <li><a href="https://historicalmapchart.net/usa-historical.html" rel="noopener noreferrer" target="_blank">Historical (1790 to today)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" id="moreDropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More Maps... <span class="caret"></span></a>
+                    <ul class="dropdown-menu multi-column columns-2">
+                        <li class="dropdown-header">Countries</li>
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="australia.html">Australia (States)</a></li>
+                                    <li><a href="australia-electoral-divisions.html">Australia (Elections)</a></li>
+                                    <li><a href="belgium.html">Belgium</a></li>
+                                    <li><a href="brazil.html">Brazil</a></li>
+                                    <li><a href="canada.html">Canada (Provinces)</a></li>
+                                    <li><a href="canada-census-divisions.html">Canada (Census div.)</a></li>
+                                    <li><a href="canada-federal-ridings.html">Canada (Election map)</a></li>
+                                    <li><a href="china.html">China</a></li>
+                                    <li><a href="france.html">France (Regions)</a></li>
+                                    <li><a href="france-departments.html">France (Departments)</a></li>
+                                    <li><a href="germany.html">Germany (States)</a></li>
+                                    <li><a href="germany-districts.html">Germany (Districts)</a></li>
+                                    <li><a href="greece.html">Greece</a></li>                 
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="india.html">India</a></li>
+                                    <li><a href="italy.html">Italy</a></li>
+                                    <li><a href="japan.html">Japan</a></li>
+                                    <li><a href="mexico.html">Mexico</a></li>
+                                    <li><a href="netherlands.html">Netherlands</a></li>
+                                    <li><a href="poland.html">Poland</a></li>
+                                    <li><a href="russia.html">Russia</a></li>
+                                    <li><a href="spain.html">Spain</a></li>
+                                    <li><a href="sweden.html">Sweden</a></li>
+                                    <li><a href="turkey.html">Turkey</a></li>
+                                    <li class="active"><a href="uk.html">UK (counties)</a></li>
+                                    <li><a href="uk-historic.html">UK (historic counties)</a></li>
+                                    <li><a href="uk-election.html">UK (election map)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Fantasy</li>
+                        <div class="row">
+                            <div class="col-sm-12 xs-12">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="westeros.html">Westeros (Game of Thrones)</a></li>
+                                    <span class="beta">NEW</span>
+                                </ul>
+                            </div>
+                        </div>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Misc.</li>
+                        <div class="row">
+                            <div class="col-sm-6 xs-6">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="middle-east.html">Middle East</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 xs-6">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="oceania-detailed.html">Oceania</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li id="divideli"><a href="showcase.html">Showcase</a></li>
+                <li><a href="https://teespring.com/stores/mapchart-store" target="_blank" rel="noopener noreferrer">Store <i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li> <a href="tutorial.html" target="_blank" class="btn btn-large btn-success">Tutorial <i class="fa fa-external-link" aria-hidden="true"></i></a> </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- MODALS -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="uploadModalLabel">Save / Upload Configuration</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4> <i class="fa fa-download"></i>
+                     Save
+                 </h4>
+                 <p>
+                    In order to save the current map configuration (colors of countries-states, borders, map title and labels), click the button below to <strong>download a small
+                     <kbd>mapchartSAVE.txt</kbd>
+                 file containing all the information.</strong>
+             </p>
+             <a class="btn btn-new btn-newD icon-save-config" href="" id="link">Save map configuration</a>
+         </div>
+         <div id="uploadDiv">
+            <h4>
+             <i class="fa fa-upload"></i>
+             Upload
+         </h4>
+         <p>
+            When you are ready to continue your work, <strong>copy and paste below the content of the
+             <kbd>mapchartSAVE.txt</kbd>
+         file you previously downloaded.</strong> <em>WARNING! The current map will be cleared of all data.</em>
+     </p>
+     <textarea class="form-control" id="uploadData" rows="8" placeholder="Paste the file content here . . ."></textarea>
+     <button type="submit" id="upload" class="btn btn-new btn-newD icon-upload-config" data-dismiss="modal">Submit</button>
+ </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-new btn-newC icon-close" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!-- END MODALS -->
+<div class="container-fluid">
+    <span class="label label-warning" id='info'>-</span>
+    <div class="row">
+        <div class="col-md-4 " id="tools">
+            <div class="row" id="img-title">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <img src="img/logo-uk-counties.png" id="logo" class="img-responsive" alt="United Kingdom counties color map logo">
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8 p0">
+                    <h1> United Kingdom (&amp; Ireland) </h1>
+                    <ul>
+                        <li>England's 48 Ceremonial Counties</li>
+                        <li>Scotland's 35 Lieutenancy Areas</li>
+                        <li>Wales' 8 Preserved Counties</li>
+                        <li>Ireland's 26 and N. Ireland's 6 Counties</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" id="colorPickers">
+                <div class="col-md-12">
+                    <span class="step">Step 1</span>
+                    <h4>
+                     <i class="fa fa-arrow-circle-right"></i>
+                     Single Selection
+                 </h4>
+                 <p>
+                    Select the color you want and click on any county on the map. You can right-click on a county to remove its color.
+                </p>
+                <form class="form-inline" id="colorPicker">
+                    <div class="col-md-6 col-sm-6 col-xs-6 p0">
+                        <label for="fillpicker" class="control-label">
+                            <kbd>Fill Color:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 p0">
+                        <div class="form-group" id="fillpicker-form">
+                            <input id="fillpicker" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mb-10">
+            <div class="col-md-12">
+                <h4>
+                 <i class="fa fa-arrow-circle-right"></i>
+                 More Options
+             </h4>
+             <form class="form-inline pt-10" id="more">
+                <div class="row more-row">
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="backgroundpicker" class="control-label">
+                            <kbd>Background:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <div class="form-group">
+                            <input id="backgroundpicker" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="backgroundpicker" class="control-label">
+                            <kbd>Borders Color:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <div class="form-group">
+                            <input id="borderpicker" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="no-borders" class="control-label">
+                            <kbd>Borders:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <input class="tgl tgl-light" id='no-borders' type="checkbox" checked="checked">
+                        <label class="tgl-btn" for="no-borders"></label>
+                    </div>
+                </div>
+                <div class="row more-row">
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="show-ireland" class="control-label">
+                            <kbd>Show Ireland:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <div class="form-group show-ireland-form">
+                            <input class="tgl tgl-light" id='show-ireland' type="checkbox" checked="checked">
+                            <label class="tgl-btn" for="show-ireland"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="show-gb" class="control-label">
+                            <kbd>Show Gr. Britain:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <div class="form-group show-gb-form">
+                            <input class="tgl tgl-light" id='show-gb' type="checkbox" checked="checked">
+                            <label class="tgl-btn" for="show-gb"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                        <label for="show-nireland" class="control-label">
+                            <kbd>Show N. Ireland:</kbd>
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                        <div class="form-group show-nireland-form">
+                            <input class="tgl tgl-light" id='show-nireland' type="checkbox" checked="checked">
+                            <label class="tgl-btn" for="show-nireland"></label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mb-10">
+        <div class="col-md-12">
+            <h4><i class="fa fa-arrow-circle-right"></i> Search for a Subdivision and Color it</h4>
+            <p> Search for the subdivision you want and click <strong>COLOR SUBDIVISION</strong> to fill it with the current Fill Color. To remove the color of the selected subdivision, choose <strong>REMOVE COLOR </strong>.</p>
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-5 pt-5 pt-10-xs">
+                    <select class="search-entity" placeholder="">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 pt-10 p0-xs">
+                    <button type="button" class="btn btn-new btn-sm btn-newD icon-isolate" id="colorFromSearch">COLOR SUBDIVISION</button>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 pt-10 p0-xs">
+                    <button type="button" class="btn btn-new btn-sm btn-newD icon-restore" id="unColorFromSearch">REMOVE COLOR </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <span class="step">Step 2</span>
+            <p class="pt-10">
+                Add the title you want for the chart's legend and choose a label for each color. Change the color for all counties in a group by clicking on it.
+            </p>
+            <form role="form" class="form-inline mt-10" id="mapTitle">
+                <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                    <label for="mapTitleInput" class="control-label">
+                        <kbd>Legend Title:</kbd>
+                    </label>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6 p0">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id='mapTitleInput'>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+                    <button type="button" class="btn btn-new btn-sm btn-newC icon-close mb-10" id="disableLegend">Disable</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row" id="legendDiv">
+        <div class="col-md-12" id="legend">
+            <table class="table-condensed table-bordered " id="ltable">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">Color</th>
+                        <th class="col-md-8" id="description">Label</th>
+                        <th class="col-md-2">Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="legendplace"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" id="buttons">
+        <div class="col-md-12">
+            <span class="step">Step 3</span>
+            <p class="pt-10">
+                When ready, select
+                <strong>Preview Map</strong> . To download the generated Chart:
+                <strong>Right Click -> Save Image</strong> or select
+                <strong>Download Map</strong> . In case you want to change something, select
+                <strong>Edit</strong> . To start over, select
+                <strong>Clear All</strong> .
+            </p>
+            <div class="text-center">
+                <a role="button" class="btn btn-new btn-newE btn-block icon-download" id="download">Download Map</a>
+                <button type="button" class="btn btn-new btn-newA btn-block icon-convert" id="convert">Preview Map</button>
+                <button type="button" class="btn btn-new btn-newB btn-block icon-edit" id="edit" disabled> Edit</button>
+                <button type="button" class="btn btn-new btn-newC btn-block icon-delete" id="clear"> Clear All</button>
+                <a class="btn" id="undo-clear">Undo <i class="fa fa-undo" aria-hidden="true"></i></a>
+                <button class="btn btn-new btn-newD btn-block icon-downup" id="downup" href="" data-toggle="modal" data-target="#uploadModal">Save - Upload map configuration</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-8 " id="mapContainer">
+    <canvas id="canvas1" width="4765px" height="6618"></canvas>
+    <div id='rsr'></div>
+    <div id="svgControls">
+        <h5>CONTROLS</h5>
+        <p><img src="img/mouse-wheel.svg" alt="mouse wheel"> : Zoom in/out</p>
+        <p><img src="img/mouse-drag.svg" alt="mouse wheel"> : Move Map</p>
+        <p>You can also use W,A,S,D,I,O on your keyboard or the controls on the right.</p>
+        <p>You can still change Fill Color, click on countries to paint them, etc.</p>
+        <button type="button" class="btn btn-new btn-sm btn-newD icon-arrow-left" id="exitZoom">Exit Zoom</button>
+        <br/>
+        <button type="button" class="btn btn-new btn-sm btn-newC icon-undo" id="resetZoom">Reset Zoom</button>
+    </div>
+    <div id="showSvgControls">
+
+        <button type="button" class="btn btn-show-controls" id="startZoom"> ZOOM </br>MODE</button>
+    </div>
+</div>
+</div>
+</div>
+<footer class="row" id="footer">
+        <div class="col-md-6 hidden-sm hidden-xs">
+            <p class="pull-left"> Did this save you a ton of hours? Please consider a donation</p>
+            <form class="pull-left" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="UBTLNVAR4QSGA">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <p class="pull-left">or a <a href="https://teespring.com/stores/mapchart-store" style="color:orange;" target="_blank" rel="noopener noreferrer">cool T-shirt!</a></p>
+        </div>
+        <div class="col-md-6">
+            <a href="https://www.instagram.com/mapchart/" class="insta-link"> Follow us on Instagram for updates, cool maps, and more <img src="img/icon-instagram.svg" alt="mapchart instagram follow" class="insta-img"> </a> 
+        <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer" class="insta-link">Privacy Policy</a> 
+        <a href="https://blog.mapchart.net" target="_blank" rel="noopener noreferrer" class="insta-link" style="float:right;">Visit the Blog for more!</a>
+        </div>
+    </footer>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.browser.min.js"></script>
+<script src="js/jquery-ui.min.js?v=1.1"></script>
+<script src="js/raphael-min.js"></script>
+<script src="js/ukLoader.js?v=4.1"></script>
+<script src="js/svgzoomer.min.js?v=1.3"></script>
+<script src="js/spectrum.min.js"></script>
+<script src="js/jquery.contextMenu.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/select2.min.js"></script>
+<script src="js/app.min.js?v=7.95"></script>
+<script>
+    var Ireland = ['Donegal', 'Leitrim', 'Cavan', 'Louth', 'Meath', 'Westmeath', 'Longford', 'Roscommon', 'Sligo', 'Mayo', 'Galway', 'Clare', 'Limerick', 'Offaly', 'Laois', 'Kilkenny', 'Kildare', 'Wicklow', 'Wexford', 'Carlow', 'Dublin', 'Tipperary', 'Waterford', 'Cork', 'Kerry', 'Monaghan'];
+    var Great_Britain = ["Suffolk", "Hampshire", "Buckinghamshire", "Cambridgeshire", "Derbyshire", "Dorset", "Hertfordshire", "Leicestershire", "Lincolnshire", "Northamptonshire", "North_Yorkshire", "Nottinghamshire", "Oxfordshire", "Staffordshire", "Surrey", "Warwickshire", "Worcestershire", "Greater_London", "South_Yorkshire", "West_Midlands", "Greater_Manchester", "West_Yorkshire", "Tyne_and_Wear", "Bedfordshire", "Berkshire", "Cheshire", "East_Riding_of_Yorkshire", "Durham", "Herefordshire", "Isle_of_Wight", "Northumberland", "Rutland", "Shropshire", "Wiltshire", "Mann", "Aberdeen", "Aberdeenshire", "Gwynedd", "Dundee", "Angus", "Inverness", "Argyll_and_Bute", "Ayrshire_and_Arran", "Banffshire", "Berwickshire", "Powys", "Caithness", "Dyfed", "Clackmannanshire", "Western_Isles", "Ross_and_Cromarty", "Clwyd", "Dumfries", "Dumbarton", "East_Lothian", "Fife", "South_Glamorgan", "Mid_Glamorgan", "West_Glamorgan", "Kincardineshire", "Stirling_and_Falkirk", "Perth_and_Kinross", "Stewartry_of_Kirkcudbright", "Lanarkshire", "Midlothian", "Edinburgh", "Gwent", "Moray", "Nairn", "Orkney", "Tweeddale", "Renfrewshire", "Roxburgh_Ettrick_and_Lauderdale", "Shetland", "Sutherland", "West_Lothian", "Wigtown", "Merseyside", "Lancashire", "Cumbria", "Gloucestershire", "Somerset", "Devon", "Cornwall", "Bristol", "Kent", "East_Sussex", "West_Sussex", "Essex", "Norfolk", "City_of_London"];
+    var Northern_Ireland = ["Antrim", "Armagh", "Down", "Fermanagh", "Londonderry", "Tyrone"];
+
+    $(document).ready(function() {
+        $('#show-ireland').change(function() {
+            if ($(this).is(":checked")) {
+                Ireland.forEach(function(county) { $('#' + county).show(); });
+            } else {
+                Ireland.forEach(function(county) { $('#' + county).hide(); });
+            }
+
+        });
+        $('#show-gb').change(function() {
+            if ($(this).is(":checked")) {
+                Great_Britain.forEach(function(county) { $('#' + county).show(); });
+            } else {
+                Great_Britain.forEach(function(county) { $('#' + county).hide(); });
+            }
+
+        });
+        $('#show-nireland').change(function() {
+            if ($(this).is(":checked")) {
+                Northern_Ireland.forEach(function(county) { $('#' + county).show(); });
+            } else {
+                Northern_Ireland.forEach(function(county) { $('#' + county).hide(); });
+            }
+
+        });
+    });
+
+    $(document).ready(function() {
+        var data = [];
+
+        $('#map>path').each(function(index) {
+            var countyId = this.id;
+            var countyName = countyId;
+            var text = countyName.replace(/_/g, ' ');
+            data.push({ id: index, text: text, original: countyId });
+
+        });
+
+        $('.search-entity').select2({
+            data: data,
+            placeholder: "Search for a subdivision...",
+        });
+
+    });
+
+    $('.search-entity').on("select2:select", function(e) {
+        var countyId = e.params.data.original;
+        $(this).data('selectedEntity', countyId);
+    });
+
+    $('#colorFromSearch').click(function() {
+        var countyId = $('.search-entity').data('selectedEntity');
+        mapchart.click($('#' + countyId));
+    });
+
+    $('#unColorFromSearch').click(function() {
+        var countyId = $('.search-entity').data('selectedEntity');
+        mapchart.removeColor($('#' + countyId));
+    });
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58176163-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-58176163-1');
+</script>
+</body>
+
+</html>
